@@ -27,7 +27,7 @@ namespace Dalisama.LoggingExample.Middleware
             // add the correlation id to the response
             context.Response.Headers.Add("X-Request-Trace",traceId);
             // Adding the correlation id to all log related to the current request
-            using (_logger.BeginScope(new Dictionary<string, string> { ["X-Request-Trace"] = traceId }))
+            using (_logger.BeginScope(new Dictionary<string, object> { ["X-Request-Trace"] = traceId.ToString() }))
             {
                 await _next(context);
             }

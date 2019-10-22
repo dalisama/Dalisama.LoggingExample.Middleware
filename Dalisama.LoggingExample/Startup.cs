@@ -30,15 +30,8 @@ namespace Dalisama.LoggingExample
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMiddleware<CorrelationMiddleware>();
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
-
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
+            app.UseHsts();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

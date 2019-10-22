@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ActionFilter\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

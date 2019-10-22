@@ -23,15 +23,15 @@ namespace Dalisama.LoggingExample
             {
                 Log.Logger = new LoggerConfiguration()
                                 .ReadFrom.Configuration(Configuration)
-                                .WriteTo.File(new JsonFormatter(), @"logs.json", shared: true).WriteTo.Console()
+                                .WriteTo.File(new JsonFormatter(), @"logs.json", shared: true).WriteTo.Console(new JsonFormatter())
                                 .CreateLogger();
             }
             else
             {
                 Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(Configuration)
-                .WriteTo.File(new JsonFormatter(), @"logs.json", shared: true)
-                .CreateLogger();
+                                .ReadFrom.Configuration(Configuration)
+                                .WriteTo.File(new JsonFormatter(), @"logs.json", shared: true)
+                                .CreateLogger();
             }
 
 
